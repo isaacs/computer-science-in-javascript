@@ -74,11 +74,17 @@ BinarySearchTree.prototype = {
 	contains : function (n) {
 		return this.find(n) !== undefined;
 	},
+	depth : function () {
+		var d = 0;
+		this.traverse(function (_, depth) { if (depth > d) d = depth; });
+		return d;
+	},
 	// Call the supplied function on each node in ascending order.
 	traverse : function (fn) {
-		if (this.left !== undefined) this.left.traverse(fn);
-		if (this.value !== undefined) fn.call(this, this.value);
-		if (this.right !== undefined) this.right.traverse(fn);
+		var depth = arguments[1] || 0;
+		if (this.left !== undefined) this.left.traverse(fn, depth + 1);
+		if (this.value !== undefined) fn.call(this, this.value, depth);
+		if (this.right !== undefined) this.right.traverse(fn, depth + 1);
 	},
 	toArray : function (omitSelf) {
 		var arr = [];
