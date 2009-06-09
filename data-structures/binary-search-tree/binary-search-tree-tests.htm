@@ -49,7 +49,7 @@ YAHOO.test.BinarySearchTree = (function(){
             this.tree.add(5);
             
             assert.areEqual(1, this.tree.size(), "Tree should have one item.");
-            assert.areEqual(5, this.tree._root.value, "First item should have value of 5.");                                        
+            assert.areEqual(5, this.tree.value, "First item should have value of 5.");                                        
         },
         
         testAddMultiple: function(){
@@ -57,7 +57,7 @@ YAHOO.test.BinarySearchTree = (function(){
             this.tree.add(10);
             
             assert.areEqual(2, this.tree.size(), "Tree should have two items.");
-            assert.areEqual(5, this.tree._root.value, "First item should have value of 5.");                                        
+            assert.areEqual(5, this.tree.value, "First item should have value of 5.");                                        
         },
         
         testAddDuplicates: function(){
@@ -123,7 +123,7 @@ YAHOO.test.BinarySearchTree = (function(){
         testRemoveFirstItem: function(){
             this.tree.remove(5);
             assert.areEqual(2, this.tree.size(), "There should only be two items left.");
-            assert.areEqual(10, this.tree._root.value, "Root value should now be 10.");
+            assert.areEqual(10, this.tree.value, "Root value should now be 10.");
             assert.isFalse(this.tree.contains(5));
         },
         
@@ -131,7 +131,7 @@ YAHOO.test.BinarySearchTree = (function(){
             this.tree.remove(10);
             this.tree.remove(5);
             assert.areEqual(1, this.tree.size(), "There should only be one item left.");
-            assert.areEqual(6, this.tree._root.value, "Root value should now be 6.");
+            assert.areEqual(6, this.tree.value, "Root value should now be 6.");
             assert.isFalse(this.tree.contains(5));
             assert.isFalse(this.tree.contains(10));
         },
